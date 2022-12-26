@@ -105,8 +105,8 @@ $( document ).ready(function() {
 
   // setTimeout serve para carregar primeiro as imagens
   setTimeout(function() {
-    $('#data-area').parallax({imageSrc: 'img/cidadeparallax.png'});
-    $('#apply-area').parallax({imageSrc: 'img/pattern.png'});
+    $('#data-area').parallax({imageSrc: '/static/img/cidadeparallax.png'});
+    $('#apply-area').parallax({imageSrc: '/static/img/pattern.png'});
   }, 200);
 
   // Filtro portfólio
