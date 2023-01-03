@@ -3,7 +3,7 @@ from django.utils.timezone import now
 
 class Email(models.Model):
     email = models.EmailField()
-    data = models.DateField(default=now)   
+
 
     def __str__(self) -> str:
         return self.email

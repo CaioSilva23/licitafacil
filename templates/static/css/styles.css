@@ -92,10 +92,10 @@ header, .navbar {
 #mainSlider .carousel-caption h2{
   font-size: 50px;
   margin-bottom: 40px;
+  font-weight: bold;
 }
 #mainSlider .carousel-caption p{
   font-size: 22px;
-  font-weight: 300;
   margin-bottom: 100px;
   color: #FFF;
 
@@ -276,10 +276,17 @@ header, .navbar {
   background-size: cover;
   height: 100%;
 }
-
+#pattern-img{
+  background-image: url('../img/pattern.png');
+  background-color: rgba(0, 0, 0, 0.4);
+  background-blend-mode: color;
+  background-size: cover;
+  height: 100%;
+}
 
 #pattern-img h4, #pattern-img p{
   color: #FFF;
+  font-weight: bold;
 }
 
 
