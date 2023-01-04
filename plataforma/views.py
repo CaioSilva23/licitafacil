@@ -35,6 +35,6 @@ def contato(request):
             assunto = contato.cleaned_data['assunto']
             texto = contato.cleaned_data['texto']
 
-            send_mail(assunto, texto, 'caiocsilva97@gmail.com', [destinatario])
+            send_mail(assunto, f'Olá, vim pela plataforma da Licita Fácil BR.\n\n{texto}', 'caiocsilva97@gmail.com', [destinatario])
             
     return redirect('/')

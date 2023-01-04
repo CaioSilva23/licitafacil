@@ -26,8 +26,15 @@
   <!-- Parallax -->
   <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
 
+
+  <link rel="shortcut icon" href="{% static 'img/12.png'%}" type="image/x-icon">
+
   <!-- whatsapp -->
+  <script src="{% static 'js/whatsapp.js' %}"></script>
+<!-- /GetButton.io widget -->
+  <!--
   <script type="text/javascript">(function(n,r,l,d){try{var h=r.head||r.getElementsByTagName("head")[0],s=r.createElement("script");s.defer=true;s.setAttribute("type","text/javascript");s.setAttribute("src",l);n.neuroleadId=d;h.appendChild(s);}catch(e){}})(window,document,"https://cdn.leadster.com.br/neurolead/neurolead.min.js", 70905);</script>
+-->
 </head>
 <body>
   <header>
@@ -35,7 +42,7 @@
       <!-- add essa class -->
       <nav class="navbar navbar-expand-lg fixed-top navbar-dark ">
         
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{% url 'home'%}">
           <img id="logo" src="{% static 'img/12.png'%}" alt="hDC Agency"> LicitaFácil
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,10 +51,10 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
           <div class="navbar-nav">
             <a class="nav-item nav-link" id="home-menu" href="#">Home</span></a>
-            <a class="nav-item nav-link" id="about-menu" href="#">Sobre</a>
-            <a class="nav-item nav-link" id="services-menu" href="#">Serviços</a>
-            <a class="nav-item nav-link" id="sicaf-menu" href="#">O que é o SICAF?</a>
-            <a class="nav-item nav-link" id="contact-menu" href="#">Contato</a>
+            <a class="nav-item nav-link" id="about-menu" href="#about-area">Sobre</a>
+            <a class="nav-item nav-link" id="services-menu" href="#portifolio-area">Serviços</a>
+            <a class="nav-item nav-link" id="sicaf-menu" href="#apply-area">O que é o SICAF?</a>
+            <a class="nav-item nav-link" id="contact-menu" href="#contact-area">Contato</a>
           </div>
         </div>
       
