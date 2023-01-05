@@ -129,8 +129,7 @@ header, .navbar {
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.7);
   background-blend-mode: color;
-  width: 100%;
-  min-height: 100vh;
+
 
 }
 .img2{
@@ -483,8 +482,9 @@ header, .navbar {
 }
 
 
+
 /* responsive */
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   
   /* geral */
   .container {
@@ -538,6 +538,10 @@ header, .navbar {
     padding: 50px 25px;
   }
 
+  #apply-area .apply-box p{
+    font-size: 10px;
+  }
+
   /* news */
   #news-area p {
     width: 80%;
@@ -563,12 +567,17 @@ header, .navbar {
 
 }
 
+@media(max-width: 425px) {
 
-@media(max-width: 100) {
+  .navbar-brand {
+    padding: 0;
+    color: #FFF;
+    margin-left: 2px;
+  }
 
-  /* slider */
+    /* slider */
   #mainSlider {
-    margin-top: 90px;
+    margin-top:50px;
   }
 
   #mainSlider .carousel-caption {
@@ -576,18 +585,54 @@ header, .navbar {
   }
 
   #mainSlider .carousel-caption h2 {
-    font-size: 18px;
-    margin-bottom: 40px;
+    margin-top: 20px;
+    font-size: 25px;
+    margin-bottom: 30px;
   }
 
   #mainSlider .carousel-caption p {
-    display: none;
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  .carousel-caption .call-btn {
+    
+    font-size: 10px;
   }
 
-  .carousel-caption .main-btn {
-    
-    font-size: 14px;
+  .carousel-caption #services-btn{
+    padding: 10px;
+
+
   }
+
+
+  #portifolio-area .row{
+
+      padding: 0 30px;
+    }
+
+    .col-md-4 #services-btn{
+      font-size: 10px;
+      padding: 10px;
+
+
+      
+    width: 50px;
+    font-weight: bold;
+    height: 30px;
+    align-items: center;
+    margin-bottom: 10px;
+
+    }
+
+    .col-md-4{
+      margin-top: 20px;
+    }
+
+    .col-md-4 ul{
+      margin-bottom: 0px;
+    }
+
 
   /* about */
   .main-title {
@@ -640,14 +685,19 @@ header, .navbar {
     width: 80%;
   }
 
-  #call-area p, #call-area #call-btn {
-    font-size: 14px;
-    letter-spacing: 0;
+  #call-area p{
+    font-size: 15px;
   }
 
-  #call-area p, #call-area #call-btn {
+  #services-btn .call-btn {
+    padding: 10px;
+    font-size: 10px;
+  }
+
+  #call-area p, #call-area .call-btn {
     margin: 0;
     width: 50%;
+    font-size: 10px;
   }
 
   /* contact */
