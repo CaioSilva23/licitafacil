@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-{% load filtros %}
+
 {% load static %}
+{% load filtros %}
 
 <head>
   <meta charset="UTF-8">
@@ -79,8 +80,8 @@
 
 
               <div class="carousel-caption d-md-block">
-                <h2>Acessoria especializada em licitações governamentais</h5>
-                <p>Conte conosco, temos o melhor assessoramento no seu negócio.</p>
+                <h2>{{plataforma.titulo_inicial}}</h5>
+                <p>{{plataforma.paragrafo_inicial}}</p>
                 <a style="background-color: rgb(30, 206, 58); color: #fff;" href='https://contate.me/licitafacilbr' target="_blank" id="services-btn" class="call-btn">
 
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
@@ -176,7 +177,7 @@
             </div>
 
             <div class="col-md-4">
-              <h3 class="about-title-orca">R$ 190,00</h3>
+              <h3 class="about-title-orca">{{plataforma.preco_servico1 | formata_preco}}</h3>
                 <p>Microempreendedor Individual</p>
                 <ul id="about-list">
                     <li class="li-1"><i class="fas fa-check"></i>Cadastro SICAF</li>
@@ -191,7 +192,7 @@
                 <a href="https://contate.me/licitafacilbr" target="_blank" id="services-btn">Cadastre-se</a>
             </div>
             <div class="col-md-4">
-              <h3 class="about-title-orca">R$ 299,00</h3>
+              <h3 class="about-title-orca">{{plataforma.preco_servico2| formata_preco}}</h3>
                 <p>ME / EPP / EI / LTDA </p>
                 <ul id="about-list">
                     <li class="li-1"><i class="fas fa-check"></i>Cadastro SICAF</li>
@@ -299,8 +300,14 @@
           <div class="row">
             <div class="col-md-6 apply-box" id="company-img"></div>
             <div  class="col-md-6 apply-box" id="pattern-img">
+              <h4>{{plataforma.sicaf_titulo}}</h4>
+              <p>{{plataforma.sicaf_texto}}</p>
+              {% comment %}
+                
+              
               <h4>O que é o SICAF ?</h4>
               <p>O SICAF foi um sistema criado para desburocratizar as licitações, sendo 100% digital. Atualmente quem deseja participar de licitações Federais está obrigado a ter seu cadastro junto ao SICAF. Nesse sistema, todas as documentações necessárias para participação nas licitaçõs ficam previamente cadastradas.  O cadastro no SICAF é gratuito, porém você saberias quais certidões sua empresa precisa para estar habilitada?Nossa missão é justamente garantir que para o seu tipo de empresa, todas as documentações estejam corretas. O SICAF possui seis níveis de cadastramento: Credenciamento; Habilitação  Jurídica; Regularidade Fiscal Federal e Trabalhista; Regularidade Distrital, Estadual e Municipal; Qualificação Técnica e Econômica Financeira.Para cada tipo de empresa (Natureza Jurídica), ou seja, Microempreendedor Digital, Empresario Individual, Empresa Individul de Sociedade Limitada, Sociedade Anônima, Sociedade Empresária Limitada, Sociedade Empresaria Limitada em nome coletivo, Cooperativa, Sociedade Simple e etc, existe uma exigência de documentação diferente. A LicitafacilBR como entendedora do assunto garante o correto cadastramento para cada tipo de empresa.</p>
+            {% endcomment %}
             </div>
 
             
@@ -320,9 +327,8 @@
               <img class="img-fluid"  src='{% static "img/12.png" %}' alt="imagem licitafacil">
             </div>
             <div class="col-md-6">
-              <h3 class="about-title">Uma empresa que pensa no futuro</h3>
-              <p>Nossa missão na LicitafacilBR é simples: fornecer serviços de alta qualidade para nossos valiosos clientes. É crescente o número de participantes nas licitações públicas. No entanto, os empreendedores ou empresas sem experiência na área acabam sendo desclassificados por não conhecerem todos os documentos necessários para sua habilitação no certame. Inclusive as exigências variam de Estado para Estado, uma verdadeira burocracia. Nesse contexto, os iniciantes acabam perdendo grandes oportunidades de negócios. A LicitafacilBR tem por objetivo auxiliar as empresas e assim garantir que toda documentação esteja correta para sua habilitação no certame. Essa garantia pauta-se no profundo conhecimento das inúmeras leis, decretos, portarias, instruções normativas que regulam as licitaçõs no Brasil. Assim, nascemos com a finalidade precípua de contribuir com aqueles que desejam obter o Governo brasileiro como cliente.
-              </p>
+              <h3 class="about-title">{{plataforma.licitafacil_titulo}}</h3>
+              <p>{{plataforma.licitafacil_texto}}</p>
                 <ul id="about-list">
                     <li class="li-1"><i class="fas fa-check"></i>Credenciamento nos 6 níveis do SICAF</li>
                     <li><i class="fas fa-check"></i>Cadastro rápido e sem burocracia</li>
