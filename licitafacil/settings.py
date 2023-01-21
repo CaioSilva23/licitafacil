@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-*!*mgt&63reyxzgm^lee-x360=!9&b43#d!&sivf6%zi!57ujf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 #config('DEBUG', cast=bool, default=False)
-ALLOWED_HOSTS = []
-#ALLOWED_HOSTS = ['licitafacil.vps-kinghost.net', '189.126.111.167', 'licitafacilbr.com.br']
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['licitafacil.vps-kinghost.net', '189.126.111.167', 'licitafacilbr.com.br']
 
 
 # Application definition
