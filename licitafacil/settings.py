@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*!*mgt&63reyxzgm^lee-x360=!9&b43#d!&sivf6%zi!57ujf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool, default=False)
-
-#ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['licitafacil.vps-kinghost.net', '189.126.111.167', 'licitafacilbr.com.br']
+DEBUG = True
+#config('DEBUG', cast=bool, default=False)
+ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['licitafacil.vps-kinghost.net', '189.126.111.167', 'licitafacilbr.com.br']
 
 
 # Application definition
@@ -77,14 +77,15 @@ WSGI_APPLICATION = 'licitafacil.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('db'),
-        'USER': config('user'),
-        'PASSWORD': config('passwd'),
-        'HOST': config('host'),
-        'PORT': config('port'),
+        'NAME': 'licitafacil',
+        'USER': 'usuario',
+        'PASSWORD': 'Havena@1',
+        'HOST': 'localhost',
+        'PORT':'5432',
     }
 }
 
@@ -147,11 +148,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DEFAULT_FROM_EMAIL = 'contatolicitafacilbr@gmail.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = config('EMAIL_USE_TLS')
-EMAIL_PORT = config('EMAIL_PORT')
-EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = 'contatolicitafacilbr@gmail.com'
+EMAIL_HOST_PASSWORD = 'dpialbbyblistcne'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
 
 # HTTPS/SSL
 if not DEBUG:
