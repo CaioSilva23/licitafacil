@@ -10,7 +10,7 @@ __pycache__/
 #DJANGO
 media
 media/
-
+static/
 config.ini/
 config/
 
