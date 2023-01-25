@@ -30,7 +30,7 @@ DEBUG = False
 if DEBUG:
     ALLOWED_HOSTS = []
 else:
-    ALLOWED_HOSTS = ['licitafacil.vps-kinghost.net', '189.126.111.167', 'licitafacilbr.com.br']
+    ALLOWED_HOSTS = ['licitafacil.vps-kinghost.net', '189.126.111.167', 'licitafacilbr.com.br','www.licitafacilbr.com.br']
 
 
 # Application definition
