@@ -121,18 +121,8 @@ header, .navbar {
   border-color: #011F26;
 }
 
-.img1{
-  background-image: url("../img/teste3.jpg");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
-  background-color: rgba(0, 0, 0, 0.7);
-  background-blend-mode: color;
-
-
-}
-.img2{
+/* 
+.img{
   background-image: url("../img/teste4.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -143,19 +133,8 @@ header, .navbar {
   width: 100%;
   min-height: 100vh;
  
-}
-.img3{
-  background-image: url("../img/teste1.jpg");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
-  background-color: rgba(0, 0, 0, 0.7);
-  background-blend-mode: color;
-  width: 100%;
-  min-height: 100vh;
- 
-}
+} */
+
 
 
 /* sobre */
@@ -190,7 +169,7 @@ header, .navbar {
   font-weight: bold;
 }
 .about-title-orca{
-  font-size: 30px;
+  font-size: 25px;
   color: #011F26;
   text-transform: uppercase;
   font-weight: bold;

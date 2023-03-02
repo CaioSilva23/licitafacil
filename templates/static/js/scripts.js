@@ -183,3 +183,59 @@ $( document ).ready(function() {
   });
 
 });
+
+
+// FRONT END VALIDATION FORM
+function validateEmail(email){
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return regex.test(email);
+
+}
+
+// FRONT END VALIDATION FORM
+function formNovidade(){
+  const email = document.getElementById("email-input").value;
+
+  if (email == ""){
+    swal('Opsss !', "Email não pode ser vázio...", "error")
+    return false;
+  }
+  else if (!(validateEmail(email))){
+    document.getElementById('email-input').value='';
+    swal("Opsss !", "Email inválido!", "error");
+    return false;
+  }
+  else{
+    return true
+}
+}
+
+// FRONT END VALIDATION FORM
+function formContato(){
+  const email = document.getElementById("id_email").value;
+  const assunto = document.getElementById("id_assunto").value;
+  const texto = document.getElementById("id_texto").value;
+
+  if (email == ""){
+    swal('Atenção!', "Email não pode ser vazio...", "error")
+    return false;
+  }
+  else if (!(validateEmail(email))){
+    document.getElementById('id_email').value='';
+    swal("Opsss !", "Email inválido!", "error");
+    return false;
+  }
+
+  else if (assunto == ""){
+    swal('Atenção!', 'Informe o assunto...')
+    return false;
+  }
+
+  else if (texto == ""){
+    swal("Atenção", 'Digite a sua mensagem...')
+    return false;
+  }
+  else{
+    return true
+}
+}

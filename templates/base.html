@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+  
+  <!-- Boostrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  
+  <!-- CSS static -->
+  <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+
+  <!-- Scripts (jQuery não pode ser o slim que vem do Boostrap) -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+  
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/bf7e05c402.js" crossorigin="anonymous"></script>
+  
+  <!-- favicon -->
+  <link rel="shortcut icon" href="{% static 'img/12.png'%}" type="image/x-icon">
+
+  <!-- whatsapp -->
+  <script src="{% static 'js/whatsapp.js' %}"></script>
+
+    {% block head %}{% endblock head %}
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    {% block content %}{% endblock content %}
+
+
+
+     <!--Messagem da view backend-->
+     {% for message in messages %}
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+ 
+     <script>
+         "{% if message.tags == 'success'%}"
+             var m = "{{message}}";
+             swal("Enviado!",m,"success")
+ 
+         "{% elif message.tags == 'error'%}"
+             var m = "{{message}}";
+             swal("Erro!",m,"error")
+         "{% endif %}"
+ 
+     </script>
+     {% endfor %}
+   <!--SWEET ALERT-->
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- JS static -->
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

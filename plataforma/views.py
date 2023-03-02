@@ -1,52 +1,36 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from .models import Plataforma
-from .forms import FormEmailContato, FormEmailNovidades
-from django.core.mail import send_mail
-from django.conf import settings
+from emails.forms import FormNewslatter, FormEmailContato
+from plataforma.models import Secao1, Card, Secao4
+
 
 
 def home(request):
-    plataforma = Plataforma.objects.get(id=1) 
+    plataforma = Plataforma.objects.all().first()
 
+    # SECOES
+    secao1 = Secao1.objects.all().first()
+    cards = Card.objects.all()
+    secao4 = Secao4.objects.all().first()
+   
+ 
     form = FormEmailContato()
-    form_email_novidades = FormEmailNovidades()
+    form_email_novidades = FormNewslatter()
 
     context = {
                 'form': form,
-                 'form_email_novidades':form_email_novidades,
-                  'plataforma': plataforma
+                'form_email_novidades':form_email_novidades,
+                'plataforma': plataforma,
+
+                ## SECOES
+                'secao1': secao1,
+                'cards': cards,
+                'secao4': secao4
+                
                 }
 
     if request.method == 'GET':
         return render(request, 'index.html', context )
     elif request.method == 'POST':
-        return render(request, 'index.html', {'form': form,'form_email_novidades':form_email_novidades,'plataforma': plataforma})
-
-def email(request):
-    if request.method == 'GET':
-        return redirect('/')
-    elif request.method == 'POST':
-        email_novidade = FormEmailNovidades(request.POST)
-        if email_novidade.is_valid():
-            email_novidade.save()
-    return redirect('/')
-        
-
-def contato(request):
-    if request.method =='GET':
-        return redirect('/')
-    elif request.method == 'POST':
-        contato = FormEmailContato(request.POST)
-        if contato.is_valid():
-            contato.save()
-
-            destinatario = contato.cleaned_data['email']
-            assunto = contato.cleaned_data['assunto']
-            texto = contato.cleaned_data['texto']
-
-            send_mail(assunto, f'O usuário, {destinatario} deixou uma mensagem abaixo:\n\n{texto}', settings.DEFAULT_FROM_EMAIL, ['contatolicitafacilbr@gmail.com'])
-            send_mail('Licita Facil BR', f'Olá, recebemos a sua mensagem, em breve entraremos em contato.', settings.DEFAULT_FROM_EMAIL, [destinatario])
-            
-            
-    return redirect('/')
+        return render(request, 'index.html', context)
+    
