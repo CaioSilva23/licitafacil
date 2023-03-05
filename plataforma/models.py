@@ -50,7 +50,7 @@ class Secao2(models.Model):
         return self.titulo
 
     class Meta:
-        verbose_name_plural = 'Secao 2 - Serviços'
+        verbose_name_plural = 'Card Serviço'
 
 
 
