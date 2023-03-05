@@ -10,7 +10,6 @@
     <div class="container" id="nav-container">
       <!-- add essa class -->
       <nav class="navbar navbar-expand-lg fixed-top navbar-dark ">
-        
         <a class="navbar-brand" href="{% url 'home'%}">
           <img id="logo" src="{{secao1.logo.url}}" alt="licitafacilbr"> {{secao1.logo_titulo}}
         </a>
@@ -26,7 +25,6 @@
             <a class="nav-item nav-link" id="contact-menu" href="#contact-area">{{secao1.botao5|title}}</a>
           </div>
         </div>
-      
       </nav>
  </div>
   </header>
@@ -44,33 +42,26 @@
             <div class="carousel-item active">
               <img src="{{secao1.banner.url}}" class="d-block w-100 img" alt="licitafacil">
               <div class="carousel-caption d-md-block">
-                
                 <h2>{{secao1.titulo_inicial}}</h5>
                 <p>{{secao1.paragrafo_inicial}}</p>
-
                 <a href='https://contate.me/licitafacilbr' target="_blank" class="btn btn-success new-btn " > 
                   <i class="fa fa-whatsapp  p-1" aria-hidden="true"></i>ENTRE EM CONTATO
                 </a>
-
                 <button type="button" class="btn btn-success  new-btn" data-toggle="modal" data-target="#modal_cadastro" >
                   <i class="fas fa-user-alt p-1"></i>CADASTRE-SE
                 </button>
-  
               </div>
-
             </div>
-      
         </div>
    
-      <!-- SOBRE -->
       <div id="portifolio-area">
         <div class="container">
           <div class='justify-content-center align-items-center row'>
             <div class="col-12">
               <h3 class="main-title">SERVIÇOS</h3>
-             
             </div>
          
+            {% if secao2.0 %}
             <div class="col-md-4">
               <h4 class="about-title-orca">{{secao2.0.titulo}}</h4>
                 <p>{{secao2.0.subtitulo}}</p>
@@ -81,20 +72,18 @@
                 </ul>
                 {% if secao2.0.preco %}
                 <h4 class="about-title-orca">{{secao2.0.preco|formata_preco}}</h4>
-
                 {% endif %}
-
                 <br>
                 <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal_cadastro">
                   Cadastre-se
                 </button>
-
                 <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal1">
                   Saiba mais
                 </button>
-               
             </div>
+            {% endif %}
 
+            {% if secao2.1 %}
             <div class="col-md-4">
               <h4 class="about-title-orca">{{secao2.1.titulo}}</h4>
                 <p>{{secao2.1.subtitulo}}</p>
@@ -115,9 +104,10 @@
                 <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal2">
                   Saiba mais
                 </button>
-               
             </div>
+            {% endif %}
 
+            {% if secao2.2 %}
             <div class="col-md-4">
               <h4 class="about-title-orca">{{secao2.2.titulo}}</h4>
                 <p>{{secao2.2.subtitulo}}</p>
@@ -129,8 +119,6 @@
                 {% if secao2.2.preco %}
                 <h4 class="about-title-orca">{{secao2.2.preco|formata_preco}}</h4>
                 {% endif %}
-                
-
                 <br>
                 <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal_cadastro">
                   Cadastre-se
@@ -138,15 +126,12 @@
                 <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal3">
                   Saiba mais
                 </button>
-               
             </div>
-         
-    
+            {% endif %}
           </div>
         </div>
 
       </div>
-   <!-- Button trigger modal -->
 
       <!-- SERVIÇOS -->
       <div id="services-area">
@@ -199,7 +184,6 @@
           <div class="row">
             <div class="col-12">
               <h3 class="main-title">Sobre a Licita Fácil BR</h3>
-             
             </div>
             <div class="col-md-6">
               <img class="img-fluid" src='{{secao1.logo.url}}' alt="imagem licitafacil">
@@ -207,11 +191,9 @@
             <div class="col-md-6">
               <h3 class="about-title">{{secao5.titulo}}</h3>
               <p>{{secao5.paragrafo|safe}}</p>
-             
             </div>
           </div>
         </div>
-
       </div>
       
       <!-- Newsletter -->
@@ -222,11 +204,8 @@
           </div>
           <p>Assine nossa lista de e-mails, e receba novidades sobre licitações governamentais.</p>
           <form action="{% url 'newslatter' %}" onsubmit="return formNovidade()" method='POST'> {% csrf_token %}
-
-      
-              {{ form_email_novidades.email.errors }} <!-- EXIBE ERRROS DE VALIDAÇÃO CASO OCORRA! -->
+              {{ form_email_novidades.email.errors }}
               {{ form_email_novidades.email  }}
-
             <input type="submit" id="news-btn" value="Inscrever">
           </form>
         </div>
@@ -254,41 +233,32 @@
           <div class="col-md-6 contact-box">
             <i class="fas fa-phone"></i>
               <p><span class="contact-title">Ligue para: </span>{{secao4.telefone}}</p>
-
           </div>
           <div class="col-md-6 contact-box">
             <i class="fas fa-envelope"></i>
             <p><span class="contact-title">Envie um e-mail: </span>{{secao4.email}}</p>
           </div>
- 
           <div class="col-md-6" id="msg-box">
             <p>Ou nos deixe uma mensagem: </p>
           </div>
           <div class="col-md-6" id="contact-form"> 
             <form action="{% url 'email_contato' %}" onsubmit='return formContato()' method='POST'> {% csrf_token %}
-
               <div class="form-group">
                 {{ form.email.errors }} <!-- EXIBE ERRROS DE VALIDAÇÃO CASO OCORRA! -->
                 {{ form.email  }}
             </div>
-
               <div class="form-group">
                 {{ form.assunto.errors }} <!-- EXIBE ERRROS DE VALIDAÇÃO CASO OCORRA! -->
                 {{ form.assunto  }}
             </div>
-
               <div class="form-group">
                 {{ form.texto.errors }} <!-- EXIBE ERRROS DE VALIDAÇÃO CASO OCORRA! -->
                 {{ form.texto }}
             </div>
-
               <input type="submit" id="main-btn" value="Enviar">
-
             </form>
-
           </div>
         </div>
-
       </div>
     </div>
 

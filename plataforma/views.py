@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from emails.forms import FormNewslatter, FormEmailContato
+from clientes.forms import FormNewslatter, FormEmailContato
 from plataforma.models import Secao1, Secao4, Secao2, Secao3, Secao5
 from clientes.forms import FormClientes
 

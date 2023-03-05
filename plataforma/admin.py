@@ -13,7 +13,9 @@ admin.site.register(Secao1, Secao1Admin)
 
 
 # SEÇÃO SERVIÇOS DA EMPRESA
-class Secao2Admin(admin.ModelAdmin):
+class Secao2Admin(SummernoteModelAdmin):
+    summernote_fields = ['saiba_mais']
+
     def has_add_permission(self, *args, **kwargs) -> bool:
         return len(Secao2.objects.all()) < 3
 admin.site.register(Secao2, Secao2Admin)
