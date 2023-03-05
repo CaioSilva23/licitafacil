@@ -60,7 +60,4 @@ class EnviaEmailContato:
         email2.attach_alternative(html_content, 'text/html')
         email2.send()
 
-        if email.send and email2.send:
-            return 1
-        else:
-            raise Http404
+
