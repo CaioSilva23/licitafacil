@@ -39,7 +39,7 @@ class Servicos(models.Model):
 
 class Secao2(models.Model):
     titulo = models.CharField(max_length=50)
-    subtitulo = models.CharField(max_length=50)
+    subtitulo = models.CharField(max_length=100)
     saiba_mais = models.TextField(max_length=3000)
     link = models.URLField(max_length=200, null=True, blank=True)
     itens = models.ManyToManyField(Servicos, related_name='secao_servicos')
