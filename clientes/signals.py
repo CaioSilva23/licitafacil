@@ -5,7 +5,9 @@ from clientes.send_email import EnviaEmailCadastro, EnviaEmailContato
 
 @receiver(post_save, sender=Cliente)
 def send_mail_licitafacil(sender, instance, created, **kwargs):
+    print('teste')
     if created:
+        print('teste2')
         send_mail = EnviaEmailCadastro(instance)
         send_mail.cadastro_email()
  
