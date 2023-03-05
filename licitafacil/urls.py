@@ -6,9 +6,11 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+    path('summernote/', include('django_summernote.urls')),    
     path('admin/', admin.site.urls),
     path('', include('plataforma.urls')),
     path('email/', include('emails.urls')),
+    path('clientes/', include('clientes.urls')),
 ]
 
 

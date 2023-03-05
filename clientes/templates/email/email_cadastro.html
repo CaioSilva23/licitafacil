@@ -1,0 +1,12 @@
+{% extends 'email/base_email.html' %}
+
+
+
+{% block titulo %}Olá {{nome|title}}, Seu cadastro foi realizado com sucesso.{% endblock titulo %}
+
+
+{% block mensagem %}Segue abaixo o link para pagamento do serviço solicitado - {{servico.titulo|title}}.{% endblock mensagem %}
+
+{% block fim %}{% endblock fim %}
+
+

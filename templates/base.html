@@ -34,7 +34,19 @@
 </head>
 <body>
     {% block content %}{% endblock content %}
+    <!-- Button trigger modal -->
 
+ 
+    {% include 'modal/cadastro/form_cadastro.html' %}
+
+
+    {% include 'modal/saiba_mais/modal1.html' %}
+    {% include 'modal/saiba_mais/modal2.html' %}
+    {% include 'modal/saiba_mais/modal3.html' %}
+
+
+    <!-- Input mask-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js" integrity="sha512-jTgBq4+dMYh73dquskmUFEgMY5mptcbqSw2rmhOZZSJjZbD2wMt0H5nhqWtleVkyBEjmzid5nyERPSNBafG4GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
      <!--Messagem da view backend-->
@@ -55,7 +67,7 @@
      {% endfor %}
    <!--SWEET ALERT-->
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+    
     <!-- JS static -->
     <script src="{% static 'js/scripts.js' %}"></script>
 </body>

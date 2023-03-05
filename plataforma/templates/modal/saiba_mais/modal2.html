@@ -1,0 +1,11 @@
+{% extends 'modal/saiba_mais/base_modal.html' %}
+
+{% block modal-id %}
+id="modal2"
+{% endblock modal-id %}
+
+
+{% block modal-title %}{{secao2.1.titulo}}{% endblock modal-title %}
+
+{% block content %}{{secao2.1.saiba_mais| safe}}{% endblock content %}
+{% block botao %}{% endblock botao %}

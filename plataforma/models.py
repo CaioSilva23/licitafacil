@@ -18,6 +18,8 @@ class Secao1(models.Model):
     titulo_inicial = models.CharField(max_length=100)
     paragrafo_inicial = models.TextField(max_length=200)
 
+    banner = models.ImageField(blank=True, upload_to='banner')
+
     def __str__(self) -> str:
         return f'Seção 1 - Home'
 
@@ -25,31 +27,42 @@ class Secao1(models.Model):
         verbose_name_plural = 'Seção 1 - Home'
 
 
-class Secao2(models.Model):
-    nome = models.CharField(max_length=20)
+class Servicos(models.Model):
+    nome = models.CharField(max_length=100)
 
     def __str__(self) -> str:
-        return f'Secao 2 - Serviços'
+        return self.nome
+
+    class Meta:
+        verbose_name_plural = 'Add seus serviços'
+
+
+class Secao2(models.Model):
+    titulo = models.CharField(max_length=50)
+    subtitulo = models.CharField(max_length=50)
+    saiba_mais = models.TextField(max_length=3000)
+    link = models.URLField(max_length=200, null=True, blank=True)
+    itens = models.ManyToManyField(Servicos, related_name='secao_servicos')
+    preco = models.FloatField()
+
+
+    def __str__(self) -> str:
+        return self.titulo
 
     class Meta:
         verbose_name_plural = 'Secao 2 - Serviços'
 
 
-class Servicos(models.Model):
-    nome = models.CharField(max_length=100)
+
+class Secao3(models.Model):
+    titulo = models.CharField(max_length=100)
+    paragrafo = models.TextField(max_length=3000)
+
     def __str__(self) -> str:
-        return self.nome
+        return 'Seção - Nosso diferencial'
 
     class Meta:
-        verbose_name_plural = 'Serviços'
-
-class Card(models.Model):
-    titulo = models.CharField(max_length=50)
-    subtitulo = models.CharField(max_length=50)
-    servicos = models.ManyToManyField(Servicos, related_name='card_servicos')
-    secao = models.ForeignKey(Secao2, on_delete=models.SET_NULL, null=True)
-
-
+        verbose_name_plural = 'Seção 3 - Nosso diferencial'
 
 class Secao4(models.Model):
     telefone = models.CharField(max_length=15, blank=True, null=True)
@@ -62,37 +75,13 @@ class Secao4(models.Model):
         verbose_name_plural = 'Seção 4 - Contatos'
 
 
-# class Secao4(models.Model):
-#     pass
 
-# class Secao5(models.Model):
-#     pass
-
-# class Secao6(models.Model):
-#     pass
-
-
-
-
-class Plataforma(models.Model):
- 
-    # SERVICOS
-    preco_servico1 = models.IntegerField()
-    preco_servico2 = models.IntegerField()
-
-
-    # SICAF
-    sicaf_titulo = models.CharField(max_length=50)
-    sicaf_texto = models.TextField()
-
-    # sobre licita facil
-
-    licitafacil_titulo = models.CharField(max_length=100)
-    licitafacil_texto = models.TextField()
-
-
-
-
+class Secao5(models.Model):
+    titulo = models.CharField(max_length=100)
+    paragrafo = models.TextField(max_length=3000)
 
     def __str__(self) -> str:
-        return f'Informações da plataforma'
+        return 'Seção - Sobre a empresa'
+
+    class Meta:
+        verbose_name_plural = 'Seção 5 - Sobre a empresa'

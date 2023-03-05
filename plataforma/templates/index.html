@@ -20,9 +20,9 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
           <div class="navbar-nav">
             <a class="nav-item nav-link" id="home-menu" href="#">{{secao1.botao1|title}}</span></a>
-            <a class="nav-item nav-link" id="about-menu" href="#about-area">{{secao1.botao2|title}}</a>
             <a class="nav-item nav-link" id="services-menu" href="#portifolio-area">{{secao1.botao3|title}}</a>
             <a class="nav-item nav-link" id="sicaf-menu" href="#apply-area">{{secao1.botao4|title}}</a>
+            <a class="nav-item nav-link" id="about-menu" href="#about-area">{{secao1.botao2|title}}</a>
             <a class="nav-item nav-link" id="contact-menu" href="#contact-area">{{secao1.botao5|title}}</a>
           </div>
         </div>
@@ -42,25 +42,20 @@
   
         <div class="carousel-inner img">
             <div class="carousel-item active">
-
-             
-              <img src="{% static 'img/c.jpg'%}" class="d-block w-100 img" alt="Projetos de e-commerce">
-
-
+              <img src="{{secao1.banner.url}}" class="d-block w-100 img" alt="licitafacil">
               <div class="carousel-caption d-md-block">
+                
                 <h2>{{secao1.titulo_inicial}}</h5>
                 <p>{{secao1.paragrafo_inicial}}</p>
-                <a style="background-color: rgb(30, 206, 58); color: #fff;" href='https://contate.me/licitafacilbr' target="_blank" id="services-btn" class="call-btn">
 
-                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
-                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-                  </svg>
-    
-                  Entre em contato
+                <a href='https://contate.me/licitafacilbr' target="_blank" class="btn btn-success new-btn " > 
+                  <i class="fa fa-whatsapp  p-1" aria-hidden="true"></i>ENTRE EM CONTATO
                 </a>
-                <a style="background-color: rgb(30, 206, 58); color: #fff;" href="https://contate.me/licitafacilbr" target="_blank" id="services-btn" class="call-btn">
-                  CADASTRE-SE | SICAF
-                </a>
+
+                <button type="button" class="btn btn-success  new-btn" data-toggle="modal" data-target="#modal_cadastro" >
+                  <i class="fas fa-user-alt p-1"></i>CADASTRE-SE
+                </button>
+  
               </div>
 
             </div>
@@ -70,59 +65,89 @@
       <!-- SOBRE -->
       <div id="portifolio-area">
         <div class="container">
-          <div class="row">
+          <div class='justify-content-center align-items-center row'>
             <div class="col-12">
               <h3 class="main-title">SERVIÇOS</h3>
              
             </div>
-            {% for card in cards %}
-            <div class="col-md-3">
-              <h4 class="about-title-orca">{{card.titulo}}</h4>
-                <p>{{card.subtitulo}}</p>
+         
+            <div class="col-md-4">
+              <h4 class="about-title-orca">{{secao2.0.titulo}}</h4>
+                <p>{{secao2.0.subtitulo}}</p>
                 <ul id="about-list">
-                 {% for i in card.servicos.all %}
+                 {% for i in secao2.0.itens.all %}
                  <li><i class="fas fa-check"></i>{{i}}</li>
-        
                   {% endfor %}
                 </ul>
-                <br>
-                <a href="https://contate.me/licitafacilbr" target="_blank" id="services-btn">Cadastre-se</a>
-            </div>
-            {% endfor %}
-            {% comment %} <div class="col-md-4">
-              <h3 class="about-title-orca">{{plataforma.preco_servico2| formata_preco}}</h3>
-                <p>ME / EPP / EI / LTDA </p>
-                <ul id="about-list">
-                    <li class="li-1"><i class="fas fa-check"></i>Cadastro SICAF</li>
-                    <li><i class="fas fa-check"></i>Cadastro 100% digital completo.</li>
-                    <li><i class="fas fa-check"></i>Para Empresa de Pequeno Porte, Microempresa, Empresa Individual, LTDA e  demais porte de empresas.</li>
-                    <li><i class="fas fa-check"></i>Cadastro de 3 a 7 dias úteis.</li>
-                    <li><i class="fas fa-check"></i>Credenciamento Urgente* (consulte)</li>
-                    <li><i class="fas fa-check"></i>Cadastro Urgente* (consulte)</li>
-                    <li><i class="fas fa-check"></i>Pagamento facilidade em até 12x.</li>
-                    <li><i class="fas fa-check"></i>Obs: Não Incluso o certificado digital.</li>
-                </ul>
+                {% if secao2.0.preco %}
+                <h4 class="about-title-orca">{{secao2.0.preco|formata_preco}}</h4>
+
+                {% endif %}
 
                 <br>
-                <a href="https://contate.me/licitafacilbr" target="_blank" id="services-btn">Cadastre-se</a>
+                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal_cadastro">
+                  Cadastre-se
+                </button>
+
+                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal1">
+                  Saiba mais
+                </button>
+               
             </div>
+
             <div class="col-md-4">
-              <h3 class="about-title-orca">Sob consulta</h3>
-                <p>Atualização do SICAF</p>
+              <h4 class="about-title-orca">{{secao2.1.titulo}}</h4>
+                <p>{{secao2.1.subtitulo}}</p>
                 <ul id="about-list">
-                    <li class="li-1"><i class="fas fa-check"></i>Cadastro SICAF</li>
-                    <li><i class="fas fa-check"></i>Para aqueles que já possuem o cadastro, porém precisam atualizar certidões e outras documentações. </li>
-                    <li><i class="fas fa-check"></i>Pagamento facilitado.</li>
-                    <li><i class="fas fa-check"></i>Atualização em até 12h.</li>
+                 {% for i in secao2.1.itens.all %}
+                 <li><i class="fas fa-check"></i>{{i}}</li>
+                  {% endfor %}
                 </ul>
+                {% if secao2.1.preco %}
+                <h4 class="about-title-orca">{{secao2.1.preco|formata_preco}}</h4>
+
+                {% endif %}
                 <br>
-                <a href="https://contate.me/licitafacilbr" target="_blank" id="services-btn">Consulte</a>
-            </div> {% endcomment %}
-            
+                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal_cadastro">
+                  Cadastre-se
+                </button>
+
+                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal2">
+                  Saiba mais
+                </button>
+               
+            </div>
+
+            <div class="col-md-4">
+              <h4 class="about-title-orca">{{secao2.2.titulo}}</h4>
+                <p>{{secao2.2.subtitulo}}</p>
+                <ul id="about-list">
+                 {% for i in secao2.2.itens.all %}
+                 <li><i class="fas fa-check"></i>{{i}}</li>
+                  {% endfor %}
+                </ul>
+                {% if secao2.2.preco %}
+                <h4 class="about-title-orca">{{secao2.2.preco|formata_preco}}</h4>
+                {% endif %}
+                
+
+                <br>
+                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal_cadastro">
+                  Cadastre-se
+                </button>
+                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal3">
+                  Saiba mais
+                </button>
+               
+            </div>
+         
+    
           </div>
         </div>
 
       </div>
+   <!-- Button trigger modal -->
+
       <!-- SERVIÇOS -->
       <div id="services-area">
         <div class="container">
@@ -159,8 +184,8 @@
           <div class="row">
             <div class="col-md-6 apply-box" id="company-img"></div>
             <div  class="col-md-6 apply-box" id="pattern-img">
-              <h4>{{plataforma.sicaf_titulo}}</h4>
-              <p>{{plataforma.sicaf_texto}}</p>
+              <h4>{{secao3.titulo}}</h4>
+              <p>{{secao3.paragrafo| safe}}</p>
             </div>
 
             
@@ -180,14 +205,9 @@
               <img class="img-fluid" src='{{secao1.logo.url}}' alt="imagem licitafacil">
             </div>
             <div class="col-md-6">
-              <h3 class="about-title">{{plataforma.licitafacil_titulo}}</h3>
-              <p>{{plataforma.licitafacil_texto}}</p>
-                <ul id="about-list">
-                    <li class="li-1"><i class="fas fa-check"></i>Credenciamento nos 6 níveis do SICAF</li>
-                    <li><i class="fas fa-check"></i>Cadastro rápido e sem burocracia</li>
-                    <li><i class="fas fa-check"></i>Pagamento facilitado em até 12x</li>
-                    <li><i class="fas fa-check"></i>100% digital</li>
-                </ul>
+              <h3 class="about-title">{{secao5.titulo}}</h3>
+              <p>{{secao5.paragrafo|safe}}</p>
+             
             </div>
           </div>
         </div>
@@ -215,16 +235,10 @@
       <div id="call-area">
         <div class="container">
           <div class="row">
-            <p>Deseja fazer um orçamento sem compromisso ?</p>
-            
-            <a style="background-color: #32a932; color: #fff;" href="https://contate.me/licitafacilbr" target="_blank" id="services-btn" class="call-btn">
-
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
-                <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-              </svg>
-
-              Orçar</a>
-            
+            <p>Deseja fazer um orçamento sem compromisso ?</p>&nbsp;&nbsp;
+            <a href='https://contate.me/licitafacilbr' target="_blank" class="btn btn-success  p-2" style="font-size:50px; border-radius: 20px;"> 
+              <i class="fa fa-whatsapp  p-1" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
         <br>

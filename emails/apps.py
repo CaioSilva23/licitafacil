@@ -7,4 +7,4 @@ class EmailsConfig(AppConfig):
 
 
     def ready(self) -> None:
-        import emails.signals
+        import clientes.signals

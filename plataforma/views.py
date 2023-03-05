@@ -1,31 +1,35 @@
-from django.shortcuts import render, redirect
-from .models import Plataforma
+from django.shortcuts import render
 from emails.forms import FormNewslatter, FormEmailContato
-from plataforma.models import Secao1, Card, Secao4
+from plataforma.models import Secao1, Secao4, Secao2, Secao3, Secao5
+from clientes.forms import FormClientes
 
 
 
 def home(request):
-    plataforma = Plataforma.objects.all().first()
-
     # SECOES
     secao1 = Secao1.objects.all().first()
-    cards = Card.objects.all()
+    secao2 = Secao2.objects.all()
+    secao3 = Secao3.objects.all().first()
     secao4 = Secao4.objects.all().first()
+    secao5 = Secao5.objects.all().first()
    
- 
+    form_cliente = FormClientes()
     form = FormEmailContato()
     form_email_novidades = FormNewslatter()
-
+    
     context = {
+                'form_cliente': form_cliente,
                 'form': form,
                 'form_email_novidades':form_email_novidades,
-                'plataforma': plataforma,
-
+        
                 ## SECOES
                 'secao1': secao1,
-                'cards': cards,
-                'secao4': secao4
+                'secao2': secao2,
+                'secao4': secao4,
+                'secao3': secao3,
+                'secao5': secao5,
+           
+
                 
                 }
 

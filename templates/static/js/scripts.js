@@ -217,12 +217,12 @@ function formContato(){
   const texto = document.getElementById("id_texto").value;
 
   if (email == ""){
-    swal('Atenção!', "Email não pode ser vazio...", "error")
+    swal('Atenção!', "Email não pode ser vazio...")
     return false;
   }
   else if (!(validateEmail(email))){
     document.getElementById('id_email').value='';
-    swal("Opsss !", "Email inválido!", "error");
+    swal("Atenção!", "Email inválido!");
     return false;
   }
 
@@ -239,3 +239,55 @@ function formContato(){
     return true
 }
 }
+
+// input masck (telefone)
+$(document).ready(function(){
+  $(".telefone").inputmask("(99) 99999-9999", {"onincomplete": function(){
+      $(".telefone").val("");
+      swal("Atenção!", "Telefone incompleto. Por favor revise! ");
+      return false;
+  }});
+});
+
+
+
+function formCadastro(){
+  const nome = document.getElementById('id_nome').value;
+  const sobrenome = document.getElementById('id_sobrenome').value;
+  const telefone = document.getElementById('id_telefone').value;
+  const email = document.getElementById('id-email-cadastro').value;
+  const servico = document.getElementById('id_servico').value;
+
+  var padrao = /[^a-zà-ú]/gi;
+
+  var valida_nome = nome.match(padrao);
+  var valida_sobrenome = sobrenome.match(padrao);
+
+
+
+  if( valida_nome || !nome ) {
+    swal('Atenção!', 'Informe o seu nome, apenas letras!')
+    return false;
+   }
+  else if( valida_sobrenome || !sobrenome ){
+    swal('Atenção!', 'Informe o seu sobrenome, apenas letras!')
+  }
+
+  else if (email == ""){
+    swal('Atenção!', "Informe o seu email")
+    return false;
+  }
+
+  else if (!(validateEmail(email))){
+    document.getElementById('id-email-cadastro').value='';
+    swal("Atenção!", "Email inválido!");
+    return false;
+  }
+
+  else if (servico == ''){
+    swal('Atenção!', 'Serviço selecionado é inválido!')
+  }
+
+  else{
+      return true
+}}
