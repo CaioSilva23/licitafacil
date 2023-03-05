@@ -1,14 +1,14 @@
 from django.conf import settings
-from clientes.models import Cliente
+from clientes.models import Cliente, EmailContato
 
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.http import Http404
 
-class EnviaEmail:
+class EnviaEmailCadastro:
 
-    def __init__(self, cliente: object):
+    def __init__(self, cliente: Cliente):
         self.__model = cliente
 
     def cadastro_email(self):
@@ -25,13 +25,17 @@ class EnviaEmail:
         email = EmailMultiAlternatives(subject='Cadastro realizado - Licita Facil BR', body=text_content, to=[self.__model.email])
         email.attach_alternative(html_content, 'text/html')
         email.send()
-            
-
-
-        if email.send():
+           
+        if email.send:
             return 1
         else:
             raise Http404
+
+
+class EnviaEmailContato:
+
+    def __init__(self, cliente: EmailContato):
+        self.__model = cliente
 
     def mail_contato(self):
         context = {
@@ -56,7 +60,7 @@ class EnviaEmail:
         email2.attach_alternative(html_content, 'text/html')
         email2.send()
 
-        if email.send() and email2.send():
+        if email.send and email2.send:
             return 1
         else:
             raise Http404

@@ -3,7 +3,6 @@ from clientes.forms import FormClientes, FormEmailContato, FormNewslatter
 from django.contrib import messages
 
 
-
 def cadastro(request):
     form = FormClientes(request.POST)
     if form.is_valid():
