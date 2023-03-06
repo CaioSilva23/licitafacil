@@ -1,0 +1,22 @@
+{% extends 'email/base_email.html' %}
+
+
+
+{% block titulo %}Novo cadastro - usuário {{nome}}{% endblock titulo %}
+
+
+{% block mensagem %}Usuário - {{nome}}, acabou de realizar o cadastro,segue as informações pessoais abaixo:{% endblock mensagem %}
+
+{% block lista %}
+<ul class="list-group">
+    <li class="list-group-item">Nome: {{nome}}</li>
+    <li class="list-group-item">Telefone: {{telefone}}</li>
+    <li class="list-group-item">Email: {{email}}</li>
+    <li class="list-group-item">Serviço solicitado: {{servico}}</li>
+  </ul>
+{% endblock lista %}
+
+{% block botao %}{% endblock botao %}
+
+{% block fim %}{% endblock fim %}
+

@@ -20,11 +20,17 @@ class EnviaEmailCadastro:
         }
 
         html_content = render_to_string('email/email_cadastro.html', context=context)
-
         text_content = strip_tags(html_content)
         email = EmailMultiAlternatives(subject='Cadastro realizado - Licita Facil BR', body=text_content, to=[self.__model.email])
         email.attach_alternative(html_content, 'text/html')
         email.send()
+
+
+        html_content2 = render_to_string('email/email_confirm_plataforma.html', context=context)
+        text_content2 = strip_tags(html_content2)
+        email2 = EmailMultiAlternatives(subject=f'Novo cadastro - Usuário {self.__model.nome}', body=text_content2, to=[settings.DEFAULT_FROM_EMAIL])
+        email2.attach_alternative(html_content, 'text/html')
+        email2.send()
            
         if email.send:
             return 1
