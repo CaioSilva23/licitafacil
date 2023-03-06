@@ -4,11 +4,11 @@ from django.utils.timezone import now
 
 class Secao1(models.Model):
     # LINKS
-    botao1 = models.CharField(max_length=25, verbose_name='Botão 1')
-    botao2 = models.CharField(max_length=25, verbose_name='Botão 2')
-    botao3 = models.CharField(max_length=25, verbose_name='Botão 3')
-    botao4 = models.CharField(max_length=25, verbose_name='Botão 4')
-    botao5 = models.CharField(max_length=25, verbose_name='Botão 5')
+    botao1 = models.CharField(max_length=25, verbose_name='Botão 1', null=True, blank=True)
+    botao2 = models.CharField(max_length=25, verbose_name='Botão 2', null=True, blank=True)
+    botao3 = models.CharField(max_length=25, verbose_name='Botão 3', null=True, blank=True)
+    botao4 = models.CharField(max_length=25, verbose_name='Botão 4', null=True, blank=True)
+    botao5 = models.CharField(max_length=25, verbose_name='Botão 5', null=True, blank=True)
 
     # LOGO
     logo = models.ImageField(upload_to='logo', verbose_name='Logo da empresa')
