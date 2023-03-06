@@ -20,7 +20,9 @@
           <div class="navbar-nav">
             <a class="nav-item nav-link" id="home-menu" href="#">{{secao1.botao1|title}}</span></a>
             <a class="nav-item nav-link" id="services-menu" href="#portifolio-area">{{secao1.botao3|title}}</a>
-            <a class="nav-item nav-link" id="sicaf-menu" href="#apply-area">{{secao1.botao4|title}}</a>
+            {% if secao1.botao4 %}
+             <a class="nav-item nav-link" id="sicaf-menu" href="#apply-area">{{secao1.botao4|title}}</a>
+            {% endif %}
             <a class="nav-item nav-link" id="about-menu" href="#about-area">{{secao1.botao2|title}}</a>
             <a class="nav-item nav-link" id="contact-menu" href="#contact-area">{{secao1.botao5|title}}</a>
           </div>
