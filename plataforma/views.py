@@ -8,7 +8,7 @@ from clientes.forms import FormClientes
 def home(request):
     # SECOES
     secao1 = Secao1.objects.all().first()
-    secao2 = Secao2.objects.order_by('-id')
+    secao2 = Secao2.objects.order_by('id')
     secao3 = Secao3.objects.all().first()
     secao4 = Secao4.objects.all().first()
     secao5 = Secao5.objects.all().first()
