@@ -1,6 +1,6 @@
 (function () {
     var options = {
-        whatsapp: "+5521999555293", // WhatsApp number
+        whatsapp: "+5521969094955", // WhatsApp number
         call_to_action: "Entre em contato conosco!", // Call to action
         button_color: "#FF6550", // Color of button
         position: "right", // Position may be 'right' or 'left'

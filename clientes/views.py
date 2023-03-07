@@ -7,7 +7,7 @@ def cadastro(request):
     form = FormClientes(request.POST)
     if form.is_valid():
         form.save()
-        messages.success(request, 'Cadastro realizado com sucesso, você receberá em breve por email o link para pagamento.')
+        messages.success(request, 'Cadastro realizado com sucesso, você receberá em instantes o link para pagamento no seu email.')
         return redirect('home')
     messages.success(request, 'Dados inválidos, tente novamente!')
     return redirect('home')

@@ -74,24 +74,24 @@ WSGI_APPLICATION = 'licitafacil.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+# if DEBUG:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db_teste.sqlite3',
+#         }
+#     }
+# else:   
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'licitafacil',
+        'USER': 'usuario',
+        'PASSWORD': 'Havena@1',
+        'HOST': 'localhost',
+        'PORT':'5432',
     }
-else:   
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'licitafacil',
-            'USER': 'usuario',
-            'PASSWORD': 'Havena@1',
-            'HOST': 'localhost',
-            'PORT':'5432',
-        }
-    }
+}
 
 
 
@@ -145,20 +145,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 ##EMAIL
-
-
 DEFAULT_FROM_EMAIL = 'contatolicitafacilbr@gmail.com'
 
 
-if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-else:
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_HOST_USER = 'contatolicitafacilbr@gmail.com'
-    EMAIL_HOST_PASSWORD = 'dpialbbyblistcne'
-    EMAIL_USE_TLS = True
-    EMAIL_PORT = 587
-    EMAIL_HOST = 'smtp.gmail.com'
+# if DEBUG:
+#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# else:
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST_USER = 'contatolicitafacilbr@gmail.com'
+EMAIL_HOST_PASSWORD = 'dpialbbyblistcne'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
 
 # HTTPS/SSL
 if not DEBUG:
@@ -166,3 +164,10 @@ if not DEBUG:
 	SECURE_SSL_REDIRECT = True
 	SESSION_COOKIE_SECURE = True
 	CSRF_COOKIE_SECURE = True
+
+
+
+# CELERY
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_CONTENT = 'json'

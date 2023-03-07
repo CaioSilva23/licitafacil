@@ -39,11 +39,11 @@ class Servicos(models.Model):
 
 class Secao2(models.Model):
     titulo = models.CharField(max_length=50)
-    subtitulo = models.CharField(max_length=100)
-    saiba_mais = models.TextField(max_length=3000)
+    subtitulo = models.CharField(max_length=100,null=True, blank=True)
+    saiba_mais = models.TextField()
     link = models.URLField(max_length=200, null=True, blank=True)
     itens = models.ManyToManyField(Servicos, related_name='secao_servicos')
-    preco = models.FloatField()
+    preco = models.FloatField(null=True, blank=True)
 
 
     def __str__(self) -> str:
@@ -55,8 +55,8 @@ class Secao2(models.Model):
 
 
 class Secao3(models.Model):
-    titulo = models.CharField(max_length=100)
-    paragrafo = models.TextField(max_length=3000)
+    titulo = models.CharField(max_length=100, null=True, blank=True)
+    paragrafo = models.TextField()
 
     def __str__(self) -> str:
         return 'Seção - Nosso diferencial'
@@ -77,8 +77,8 @@ class Secao4(models.Model):
 
 
 class Secao5(models.Model):
-    titulo = models.CharField(max_length=100)
-    paragrafo = models.TextField(max_length=3000)
+    titulo = models.CharField(max_length=100, null=True, blank=True)
+    paragrafo = models.TextField()
 
     def __str__(self) -> str:
         return 'Seção - Sobre a empresa'
