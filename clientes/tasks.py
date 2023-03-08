@@ -27,7 +27,7 @@ def cadastro_email(id):
     html_content2 = render_to_string('email/email_confirm_plataforma.html', context=context)
     text_content2 = strip_tags(html_content2)
     email2 = EmailMultiAlternatives(subject=f'Novo cadastro - Usuário {model.nome}', body=text_content2, to=[settings.DEFAULT_FROM_EMAIL])
-    email2.attach_alternative(html_content, 'text/html')
+    email2.attach_alternative(html_content2, 'text/html')
     email2.send()
         
     if email.send and email2.send:
@@ -47,8 +47,8 @@ def mail_contato(id):
     }
 
     html_content = render_to_string('email/email.html', context=context)
-
     text_content = strip_tags(html_content)
+
     email = EmailMultiAlternatives(subject='Licita Facil BR', body=text_content, to=[model.email])
     email.attach_alternative(html_content, 'text/html')
     email.send()
@@ -59,7 +59,7 @@ def mail_contato(id):
     text_content2 = strip_tags(html_content2)
     
     email2 = EmailMultiAlternatives(subject=f'Assunto: {model.assunto}', body=text_content2, to=[settings.DEFAULT_FROM_EMAIL])
-    email2.attach_alternative(html_content, 'text/html')
+    email2.attach_alternative(html_content2, 'text/html')
     email2.send()
 
     if email.send and email2.send:
