@@ -153,7 +153,7 @@ DEFAULT_FROM_EMAIL = 'contatolicitafacilbr@gmail.com'
 # else:
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST_USER = 'contatolicitafacilbr@gmail.com'
-EMAIL_HOST_PASSWORD = 'dpialbbyblistcne'
+EMAIL_HOST_PASSWORD = 'fqwkousvcxikvrwx'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST = 'smtp.gmail.com'
