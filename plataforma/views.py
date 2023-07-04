@@ -18,23 +18,20 @@ def home(request):
     form_email_novidades = FormNewslatter()
     
     context = {
-                'form_cliente': form_cliente,
-                'form': form,
-                'form_email_novidades':form_email_novidades,
-        
-                ## SECOES
-                'secao1': secao1,
-                'secao2': secao2,
-                'secao4': secao4,
-                'secao3': secao3,
-                'secao5': secao5,
-           
+        'form_cliente': form_cliente,
+        'form': form,
+        'form_email_novidades': form_email_novidades,
 
-                
+        ## SECOES
+        'secao1': secao1,
+        'secao2': secao2,
+        'secao4': secao4,
+        'secao3': secao3,
+        'secao5': secao5,
                 }
 
     if request.method == 'GET':
-        return render(request, 'index.html', context )
+        return render(request, 'index.html', context)
     elif request.method == 'POST':
         return render(request, 'index.html', context)
     
